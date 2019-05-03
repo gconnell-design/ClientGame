@@ -1,0 +1,33 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+
+public class CanvasManager : MonoBehaviour
+{
+
+    public GameObject menu;
+    public GameObject game;
+    public Button StartBtn;
+
+    public void Start()
+    {
+        menu.SetActive(true);
+        game.SetActive(false);
+    }
+
+    public void Update()
+    {
+        StartBtn.onClick.AddListener(SwitchCanvas);
+    }
+
+    void SwitchCanvas()
+    {
+        menu.SetActive(false);
+        game.SetActive(true);
+    }
+
+
+}
