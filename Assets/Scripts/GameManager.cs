@@ -39,12 +39,24 @@ public class GameManager : MonoBehaviour
     public Text P2Slot4T;
 
     public bool turnOne;
+    public bool turnTwo;
+    public bool turnThree;
+    public bool turnFour;
+    public bool turnReset;
+
+    public bool P2turnOne;
+    public bool P2turnTwo;
+    public bool P2turnThree;
+    public bool P2turnFour;
+    public bool P2turnReset;
+
 
     public Text PhaseTxt;
     public GameObject Game;
     public float currentTime;
 
-    public int P1Turn = 1;
+    public int P1Turn = 0;
+    public int P2Turn = 1;
 
 
    
@@ -102,19 +114,24 @@ public class GameManager : MonoBehaviour
         P2Slot4T.text = P2Slot4.Name;
 
         P1UnitOne.SetActive(false);
-        turnOne = true;
+        turnOne = false;
+        turnTwo = false;
+        turnThree = false;
+        turnFour = false;
+        turnReset = false;
+
+        P2UnitOne.SetActive(false);
+        P2turnOne = false;
+        P2turnTwo = false;
+        P2turnThree = false;
+        P2turnFour = false;
+        P2turnReset = false;
+
 
     }
 
     public void Update()
     {
-        if (turnOne)
-        {
-            P1UnitOne.SetActive(true);
-            P1UnitTwo.SetActive(false);
-            P1Turn += 1;
-            turnOne = false;
-        }
         currentTime = Game.GetComponent<CountdownTimer>().currentTime;
         if (currentTime > 0f)
         {
@@ -126,29 +143,132 @@ public class GameManager : MonoBehaviour
             PhaseTxt.text = "Results";
         }
 
-        if ((P1Turn == 1) && ((Input.GetKeyDown("joystick button 0") || Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2") || Input.GetKeyDown("joystick button 3"))))
+        //Player One
+        if ((P1Turn == 1) && ((Input.GetAxisRaw("joystick button 0") || Input.GetAxisRaw("joystick button 1") || Input.GetAxisRaw("joystick button 2") || Input.GetAxisRaw("joystick button 3"))))
         {
             turnOne = true;
         }
 
-        if ((P1Turn == 2) && ((Input.GetKeyDown("joystick button 0") || Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2") || Input.GetKeyDown("joystick button 3"))))
+        if ((P1Turn == 2) && ((Input.GetAxisRaw("joystick button 0") || Input.GetAxisRaw("joystick button 1") || Input.GetAxisRaw("joystick button 2") || Input.GetAxisRaw("joystick button 3"))))
+        {
+            turnTwo = true;
+        }
+
+        if ((P1Turn == 3) && ((Input.GetAxisRaw("joystick button 0") || Input.GetAxisRaw("joystick button 1") || Input.GetAxisRaw("joystick button 2") || Input.GetAxisRaw("joystick button 3"))))
+        {
+            turnThree = true;
+        }
+
+        if ((P1Turn == 4) && ((Input.GetAxisRaw("joystick button 0") || Input.GetAxisRaw("joystick button 1") || Input.GetAxisRaw("joystick button 2") || Input.GetAxisRaw("joystick button 3"))))
+        {
+            turnFour = true;
+        }
+
+        if ((P1Turn == 5) && ((Input.GetAxisRaw("joystick button 1"))))
+        {
+            turnReset = true;
+        }
+
+        if (turnOne)
+        {
+            P1UnitOne.SetActive(true);
+            P1UnitTwo.SetActive(false);
+            P1Turn += 1;
+            turnOne = false;
+        }
+
+        if (turnTwo)
         {
             P1UnitTwo.SetActive(true);
             P1UnitThree.SetActive(false);
             P1Turn += 1;
+            turnTwo = false;
         }
 
-        if ((P1Turn == 3) && ((Input.GetKeyDown("joystick button 0") || Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2") || Input.GetKeyDown("joystick button 3"))))
+        if (turnThree)
         {
             P1UnitThree.SetActive(true);
             P1UnitFour.SetActive(false);
             P1Turn += 1;
+            turnThree = false;
         }
 
-        if ((P1Turn == 4) && ((Input.GetKeyDown("joystick button 0") || Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2") || Input.GetKeyDown("joystick button 3"))))
+        if (turnFour)
         {
             P1UnitFour.SetActive(true);
             P1Turn += 1;
+            turnFour = false;
+        }
+
+        if (turnReset)
+        {
+            P1UnitOne.SetActive(false);
+            P1Turn = 1;
+            turnReset = false;
+        }
+
+        //Player Two
+        if ((P2Turn == 1) && ((Input.GetAxisRaw("joystick 2 button 0") || Input.GetAxisRaw("joystick 2 button 1") || Input.GetAxisRaw("joystick 2 button 2") || Input.GetAxisRaw("joystick 2 button 3"))))
+        {
+            P2turnOne = true;
+        }
+
+        if ((P2Turn == 2) && ((Input.GetAxisRa`w("joystick 2 button 0") || Input.GetAxisRaw("joystick 2 button 1") || Input.GetAxisRaw("joystick 2 button 2") || Input.GetKeyDown("joystick 2 button 3"))))
+        {
+            P2turnTwo = true;
+        }
+
+        if ((P2Turn == 3) && ((Input.GetKeyDown("joystick 2 button 0") || Input.GetKeyDown("joystick 2 button 1") || Input.GetKeyDown("joystick 2 button 2") || Input.GetKeyDown("joystick 2 button 3"))))
+        {
+            P2turnThree = true;
+        }
+
+        if ((P2Turn == 4) && ((Input.GetKeyDown("joystick 2 button 0") || Input.GetKeyDown("joystick 2 button 1") || Input.GetKeyDown("joystick 2 button 2") || Input.GetKeyDown("joystick 2 button 3"))))
+        {
+            P2turnFour = true;
+        }
+
+        if ((P2Turn == 5) && ((Input.GetKeyDown("joystick 2 button 1"))))
+        {
+            P2turnReset = true;
+        }
+
+        if (P2turnOne)
+        {
+            P2UnitOne.SetActive(true);
+            P2UnitTwo.SetActive(false);
+            P2Turn += 1;
+            P2turnOne = false;
+        }
+
+        if (P2turnTwo)
+        {
+            P2UnitTwo.SetActive(true);
+            P2UnitThree.SetActive(false);
+            P2Turn += 1;
+            P2turnTwo = false;
+        }
+
+        if (P2turnThree)
+        {
+            P2UnitThree.SetActive(true);
+            P2UnitFour.SetActive(false);
+            P2Turn += 1;
+            P2turnThree = false;
+        }
+
+        if (P2turnFour)
+        {
+            P2UnitFour.SetActive(true);
+            P2Turn += 1;
+            P2turnFour = false;
+        }
+
+        if (P2turnReset)
+        {
+            P2UnitOne.SetActive(false);
+            P2Turn = 1;
+            P2turnReset = false;
         }
 
         Debug.Log(P1Turn);
