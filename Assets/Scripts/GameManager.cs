@@ -1,10 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using XboxCtrlrInput;
 
 public class GameManager : MonoBehaviour
 {
@@ -144,27 +139,27 @@ public class GameManager : MonoBehaviour
         }
 
         //Player One
-        if ((P1Turn == 1) && ((Input.GetAxisRaw("joystick button 0") || Input.GetAxisRaw("joystick button 1") || Input.GetAxisRaw("joystick button 2") || Input.GetAxisRaw("joystick button 3"))))
+        if ((P1Turn == 1) && ((Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown("joystick 1 button 1") || Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown("joystick 1 button 3"))))
         {
             turnOne = true;
         }
 
-        if ((P1Turn == 2) && ((Input.GetAxisRaw("joystick button 0") || Input.GetAxisRaw("joystick button 1") || Input.GetAxisRaw("joystick button 2") || Input.GetAxisRaw("joystick button 3"))))
+        if ((P1Turn == 2) && ((Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown("joystick 1 button 1") || Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown("joystick 1 button 3"))))
         {
             turnTwo = true;
         }
 
-        if ((P1Turn == 3) && ((Input.GetAxisRaw("joystick button 0") || Input.GetAxisRaw("joystick button 1") || Input.GetAxisRaw("joystick button 2") || Input.GetAxisRaw("joystick button 3"))))
+        if ((P1Turn == 3) && ((Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown("joystick 1 button 1") || Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown("joystick 1 button 3"))))
         {
             turnThree = true;
         }
 
-        if ((P1Turn == 4) && ((Input.GetAxisRaw("joystick button 0") || Input.GetAxisRaw("joystick button 1") || Input.GetAxisRaw("joystick button 2") || Input.GetAxisRaw("joystick button 3"))))
+        if ((P1Turn == 4) && ((Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown("joystick 1 button 1") || Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown("joystick 1 button 3"))))
         {
             turnFour = true;
         }
 
-        if ((P1Turn == 5) && ((Input.GetAxisRaw("joystick button 1"))))
+        if ((P1Turn == 5) && ((Input.GetKeyDown("joystick 1 button 1"))))
         {
             turnReset = true;
         }
@@ -208,12 +203,12 @@ public class GameManager : MonoBehaviour
         }
 
         //Player Two
-        if ((P2Turn == 1) && ((Input.GetAxisRaw("joystick 2 button 0") || Input.GetAxisRaw("joystick 2 button 1") || Input.GetAxisRaw("joystick 2 button 2") || Input.GetAxisRaw("joystick 2 button 3"))))
+        if ((P2Turn == 1) && ((Input.GetKeyDown("joystick 2 button 0") || Input.GetKeyDown("joystick 2 button 1") || Input.GetKeyDown("joystick 2 button 2") || Input.GetKeyDown("joystick 2 button 3"))))
         {
             P2turnOne = true;
         }
 
-        if ((P2Turn == 2) && ((Input.GetAxisRa`w("joystick 2 button 0") || Input.GetAxisRaw("joystick 2 button 1") || Input.GetAxisRaw("joystick 2 button 2") || Input.GetKeyDown("joystick 2 button 3"))))
+        if ((P2Turn == 2) && ((Input.GetKeyDown("joystick 2 button 0") || Input.GetKeyDown("joystick 2 button 1") || Input.GetKeyDown("joystick 2 button 2") || Input.GetKeyDown("joystick 2 button 3"))))
         {
             P2turnTwo = true;
         }
@@ -271,7 +266,7 @@ public class GameManager : MonoBehaviour
             P2turnReset = false;
         }
 
-        Debug.Log(P1Turn);
+        Debug.Log(P1Turn + " - " + P2Turn);
 
     }
 }

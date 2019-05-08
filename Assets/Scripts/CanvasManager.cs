@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class CanvasManager : MonoBehaviour
 {
-
+    public StandaloneInputModule eventSystem;
     public GameObject menu;
     public GameObject game;
     public Button StartBtn;
@@ -27,6 +27,7 @@ public class CanvasManager : MonoBehaviour
     {
         menu.SetActive(false);
         game.SetActive(true);
+        
     }
 
 
