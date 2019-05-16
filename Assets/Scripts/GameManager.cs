@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public Unit P2Slot3;
     public Unit P2Slot4;
 
+    public GameObject p1LineMaker;
+    public GameObject p2LineMaker;
+
     public GameObject P1UnitOne;
     public GameObject P1UnitTwo;
     public GameObject P1UnitThree;
@@ -27,6 +30,24 @@ public class GameManager : MonoBehaviour
     public GameObject P2UnitTwo;
     public GameObject P2UnitThree;
     public GameObject P2UnitFour;
+
+    public GameObject p1u1st;
+    public GameObject p1u1tr;
+    public GameObject p1u2st;
+    public GameObject p1u2tr;
+    public GameObject p1u3st;
+    public GameObject p1u3tr;
+    public GameObject p1u4st;
+    public GameObject p1u4tr;
+
+    public GameObject p2u1st;
+    public GameObject p2u1tr;
+    public GameObject p2u2st;
+    public GameObject p2u2tr;
+    public GameObject p2u3st;
+    public GameObject p2u3tr;
+    public GameObject p2u4st;
+    public GameObject p2u4tr;
 
     public Text P2Slot1T;
     public Text P2Slot2T;
@@ -54,12 +75,12 @@ public class GameManager : MonoBehaviour
     public int P2Turn = 1;
 
 
-   
+
 
     // Use this for initialization
     void Start()
     {
-        
+
         P1Slot1 = new Unit();
         P1Slot1.Name = "Knight";
         P1Slot1.HP = 2;
@@ -139,134 +160,443 @@ public class GameManager : MonoBehaviour
         }
 
         //Player One
-        if ((P1Turn == 1) && ((Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown("joystick 1 button 1") || Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown("joystick 1 button 3"))))
+        if (P1Turn == 1)
         {
-            turnOne = true;
+            if ((Input.GetKeyDown("joystick 1 button 0")))
+            {
+                turnOne = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u1st.transform.position));
+                lRend.SetPosition(1, (p2u1tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 1")))
+            {
+                turnOne = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u1st.transform.position));
+                lRend.SetPosition(1, (p2u2tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 2")))
+            {
+                turnOne = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u1st.transform.position));
+                lRend.SetPosition(1, (p2u3tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 3")))
+            {
+                turnOne = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u1st.transform.position));
+                lRend.SetPosition(1, (p2u4tr.transform.position));
+            }
         }
 
-        if ((P1Turn == 2) && ((Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown("joystick 1 button 1") || Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown("joystick 1 button 3"))))
+
+        if (P1Turn == 2)
         {
-            turnTwo = true;
+            if ((Input.GetKeyDown("joystick 1 button 0")))
+            {
+                turnTwo = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u2st.transform.position));
+                lRend.SetPosition(1, (p2u1tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 1")))
+            {
+                turnTwo = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u2st.transform.position));
+                lRend.SetPosition(1, (p2u2tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 2")))
+            {
+                turnTwo = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u2st.transform.position));
+                lRend.SetPosition(1, (p2u3tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 3")))
+            {
+                turnTwo = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u2st.transform.position));
+                lRend.SetPosition(1, (p2u4tr.transform.position));
+            }
         }
 
-        if ((P1Turn == 3) && ((Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown("joystick 1 button 1") || Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown("joystick 1 button 3"))))
+        if (P1Turn == 3)
         {
-            turnThree = true;
+            if ((Input.GetKeyDown("joystick 1 button 0")))
+            {
+                turnThree = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u3st.transform.position));
+                lRend.SetPosition(1, (p2u1tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 1")))
+            {
+                turnThree = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u3st.transform.position));
+                lRend.SetPosition(1, (p2u2tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 2")))
+            {
+                turnThree = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u3st.transform.position));
+                lRend.SetPosition(1, (p2u3tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 3")))
+            {
+                turnThree = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u3st.transform.position));
+                lRend.SetPosition(1, (p2u4tr.transform.position));
+            }
         }
 
-        if ((P1Turn == 4) && ((Input.GetKeyDown("joystick 1 button 0") || Input.GetKeyDown("joystick 1 button 1") || Input.GetKeyDown("joystick 1 button 2") || Input.GetKeyDown("joystick 1 button 3"))))
+        if (P1Turn == 4)
         {
-            turnFour = true;
+            if ((Input.GetKeyDown("joystick 1 button 0")))
+            {
+                turnFour = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u4st.transform.position));
+                lRend.SetPosition(1, (p2u1tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 1")))
+            {
+                turnFour = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u4st.transform.position));
+                lRend.SetPosition(1, (p2u2tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 2")))
+            {
+                turnFour = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u4st.transform.position));
+                lRend.SetPosition(1, (p2u3tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 3")))
+            {
+                turnFour = true;
+
+                GameObject newLine = Instantiate(p1LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u4st.transform.position));
+                lRend.SetPosition(1, (p2u4tr.transform.position));
+            }
         }
 
-        if ((P1Turn == 5) && ((Input.GetKeyDown("joystick 1 button 1"))))
-        {
-            turnReset = true;
-        }
+            if ((P1Turn == 5) && ((Input.GetKeyDown("joystick 1 button 1"))))
+            {
+                turnReset = true;
+            }
 
-        if (turnOne)
-        {
-            P1UnitOne.SetActive(true);
-            P1UnitTwo.SetActive(false);
-            P1Turn += 1;
-            turnOne = false;
-        }
+            if (turnOne)
+            {
+                P1UnitOne.SetActive(true);
+                P1UnitTwo.SetActive(false);
+                P1Turn += 1;
+                turnOne = false;
+            }
 
-        if (turnTwo)
-        {
-            P1UnitTwo.SetActive(true);
-            P1UnitThree.SetActive(false);
-            P1Turn += 1;
-            turnTwo = false;
-        }
+            if (turnTwo)
+            {
+                P1UnitTwo.SetActive(true);
+                P1UnitThree.SetActive(false);
+                P1Turn += 1;
+                turnTwo = false;
+            }
 
-        if (turnThree)
-        {
-            P1UnitThree.SetActive(true);
-            P1UnitFour.SetActive(false);
-            P1Turn += 1;
-            turnThree = false;
-        }
+            if (turnThree)
+            {
+                P1UnitThree.SetActive(true);
+                P1UnitFour.SetActive(false);
+                P1Turn += 1;
+                turnThree = false;
+            }
 
-        if (turnFour)
-        {
-            P1UnitFour.SetActive(true);
-            P1Turn += 1;
-            turnFour = false;
-        }
+            if (turnFour)
+            {
+                P1UnitFour.SetActive(true);
+                P1Turn += 1;
+                turnFour = false;
+            }
 
-        if (turnReset)
-        {
-            P1UnitOne.SetActive(false);
-            P1Turn = 1;
-            turnReset = false;
-        }
+            if (turnReset)
+            {
+                P1UnitOne.SetActive(false);
+                P1Turn = 1;
+                turnReset = false;
+
+
+            }
 
         //Player Two
-        if ((P2Turn == 1) && ((Input.GetKeyDown("joystick 2 button 0") || Input.GetKeyDown("joystick 2 button 1") || Input.GetKeyDown("joystick 2 button 2") || Input.GetKeyDown("joystick 2 button 3"))))
+        if (P2Turn == 1)
         {
-            P2turnOne = true;
+            if ((Input.GetKeyDown("joystick 2 button 0")))
+            {
+                P2turnOne = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u1st.transform.position));
+                lRend.SetPosition(1, (p1u1tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 1")))
+            {
+                P2turnOne = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u1st.transform.position));
+                lRend.SetPosition(1, (p1u2tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 2")))
+            {
+                P2turnTwo = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u1st.transform.position));
+                lRend.SetPosition(1, (p1u3tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 3")))
+            {
+                P2turnTwo = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u1st.transform.position));
+                lRend.SetPosition(1, (p1u4tr.transform.position));
+            }
         }
 
-        if ((P2Turn == 2) && ((Input.GetKeyDown("joystick 2 button 0") || Input.GetKeyDown("joystick 2 button 1") || Input.GetKeyDown("joystick 2 button 2") || Input.GetKeyDown("joystick 2 button 3"))))
+
+        if (P2Turn == 2)
         {
-            P2turnTwo = true;
+            if ((Input.GetKeyDown("joystick 2 button 0")))
+            {
+                P2turnTwo = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u2st.transform.position));
+                lRend.SetPosition(1, (p1u1tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 1")))
+            {
+                P2turnTwo = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p1u2st.transform.position));
+                lRend.SetPosition(1, (p2u2tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 2")))
+            {
+                P2turnTwo = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u2st.transform.position));
+                lRend.SetPosition(1, (p1u3tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 3")))
+            {
+                P2turnTwo = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u2st.transform.position));
+                lRend.SetPosition(1, (p1u4tr.transform.position));
+            }
         }
 
-        if ((P2Turn == 3) && ((Input.GetKeyDown("joystick 2 button 0") || Input.GetKeyDown("joystick 2 button 1") || Input.GetKeyDown("joystick 2 button 2") || Input.GetKeyDown("joystick 2 button 3"))))
+        if (P2Turn == 3)
         {
-            P2turnThree = true;
+            if ((Input.GetKeyDown("joystick 2 button 0")))
+            {
+                P2turnThree = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u3st.transform.position));
+                lRend.SetPosition(1, (p1u1tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 1")))
+            {
+                P2turnThree = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u3st.transform.position));
+                lRend.SetPosition(1, (p1u2tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 2")))
+            {
+                P2turnThree = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u3st.transform.position));
+                lRend.SetPosition(1, (p1u3tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 3")))
+            {
+                P2turnThree = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u3st.transform.position));
+                lRend.SetPosition(1, (p1u4tr.transform.position));
+            }
         }
 
-        if ((P2Turn == 4) && ((Input.GetKeyDown("joystick 2 button 0") || Input.GetKeyDown("joystick 2 button 1") || Input.GetKeyDown("joystick 2 button 2") || Input.GetKeyDown("joystick 2 button 3"))))
+        if (P2Turn == 4)
         {
-            P2turnFour = true;
+            if ((Input.GetKeyDown("joystick 2 button 0")))
+            {
+                P2turnFour = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u4st.transform.position));
+                lRend.SetPosition(1, (p1u1tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 1")))
+            {
+                P2turnFour = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u4st.transform.position));
+                lRend.SetPosition(1, (p1u2tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 2")))
+            {
+                P2turnFour = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u4st.transform.position));
+                lRend.SetPosition(1, (p1u3tr.transform.position));
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 3")))
+            {
+                P2turnFour = true;
+
+                GameObject newLine = Instantiate(p2LineMaker);
+                LineRenderer lRend = newLine.GetComponent<LineRenderer>();
+                lRend.SetPosition(0, (p2u4st.transform.position));
+                lRend.SetPosition(1, (p1u4tr.transform.position));
+            }
         }
 
         if ((P2Turn == 5) && ((Input.GetKeyDown("joystick 2 button 1"))))
-        {
-            P2turnReset = true;
-        }
+            {
+                P2turnReset = true;
+            }
 
         if (P2turnOne)
-        {
-            P2UnitOne.SetActive(true);
-            P2UnitTwo.SetActive(false);
-            P2Turn += 1;
-            P2turnOne = false;
-        }
+            {
+                P2UnitOne.SetActive(true);
+                P2UnitTwo.SetActive(false);
+                P2Turn += 1;
+                P2turnOne = false;
+            }
 
         if (P2turnTwo)
-        {
-            P2UnitTwo.SetActive(true);
-            P2UnitThree.SetActive(false);
-            P2Turn += 1;
-            P2turnTwo = false;
-        }
+            {
+                P2UnitTwo.SetActive(true);
+                P2UnitThree.SetActive(false);
+                P2Turn += 1;
+                P2turnTwo = false;
+            }
 
         if (P2turnThree)
-        {
-            P2UnitThree.SetActive(true);
-            P2UnitFour.SetActive(false);
-            P2Turn += 1;
-            P2turnThree = false;
-        }
+            {
+                P2UnitThree.SetActive(true);
+                P2UnitFour.SetActive(false);
+                P2Turn += 1;
+                P2turnThree = false;
+            }
 
         if (P2turnFour)
-        {
-            P2UnitFour.SetActive(true);
-            P2Turn += 1;
-            P2turnFour = false;
-        }
+            {
+                P2UnitFour.SetActive(true);
+                P2Turn += 1;
+                P2turnFour = false;
+            }
 
         if (P2turnReset)
-        {
-            P2UnitOne.SetActive(false);
-            P2Turn = 1;
-            P2turnReset = false;
-        }
+            {
+                P2UnitOne.SetActive(false);
+                P2Turn = 1;
+                P2turnReset = false;
+            }
 
         Debug.Log(P1Turn + " - " + P2Turn);
 
     }
 }
+
