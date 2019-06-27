@@ -13,8 +13,14 @@ public class GameManager : MonoBehaviour
     public Unit P2Slot3;
     public Unit P2Slot4;
 
+    public GameObject healthManager;
+    public GameObject block;
+    public Canvas canvas;
+
     public GameObject p1LineMaker;
     public GameObject p2LineMaker;
+    public GameObject p1DblLineMaker;
+    public GameObject p2DblLineMaker;
 
     public GameObject P1UnitOne;
     public GameObject P1UnitTwo;
@@ -49,6 +55,16 @@ public class GameManager : MonoBehaviour
     public GameObject p2u4st;
     public GameObject p2u4tr;
 
+    public GameObject p1_4t1;
+    public GameObject p1_4t2;
+    public GameObject p1_4t3;
+    public GameObject p1_4t4;
+
+    public GameObject p2_4t1;
+    public GameObject p2_4t2;
+    public GameObject p2_4t3;
+    public GameObject p2_4t4;
+
     public Text P2Slot1T;
     public Text P2Slot2T;
     public Text P2Slot3T;
@@ -74,23 +90,40 @@ public class GameManager : MonoBehaviour
     public int P1Turn = 0;
     public int P2Turn = 1;
 
+    public int P1U1Health;
+    public int P1U2Health;
+    public int P1U3Health;
+    public int P1U4Health;
+
+    public int P2U1Health;
+    public int P2U2Health;
+    public int P2U3Health;
+    public int P2U4Health;
+
     public GameObject[] P1lines = new GameObject[4];
     public GameObject[] P2lines = new GameObject[4];
-
-
-
 
     // Use this for initialization
     void Start()
     {
-        
+        P1U1Health = 2;
+        P1U2Health = 2;
+        P1U3Health = 2;
+        P1U4Health = 2;
+
+        P2U1Health = 2;
+        P2U2Health = 2;
+        P2U3Health = 2;
+        P2U4Health = 2;
+
+    block = canvas.GetComponent<CanvasManager>().block;
 
         P1Slot1 = new Unit();
         P1Slot1.Name = "Knight";
         P1Slot1.HP = 2;
         P1Slot1.Att = 1;
         P1Slot1T.text = P1Slot1.Name;
-
+        
         P1Slot2 = new Unit();
         P1Slot2.Name = "Knight";
         P1Slot2.HP = 2;
@@ -176,6 +209,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u1st.transform.position));
                 lRend.SetPosition(1, (p2u1tr.transform.position));
                 P1lines[0] = newLine;
+                P2U1Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 1 button 1")))
@@ -187,6 +221,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u1st.transform.position));
                 lRend.SetPosition(1, (p2u2tr.transform.position));
                 P1lines[0] = newLine;
+                P2U2Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 1 button 2")))
@@ -198,6 +233,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u1st.transform.position));
                 lRend.SetPosition(1, (p2u3tr.transform.position));
                 P1lines[0] = newLine;
+                P2U3Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 1 button 3")))
@@ -209,6 +245,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u1st.transform.position));
                 lRend.SetPosition(1, (p2u4tr.transform.position));
                 P1lines[0] = newLine;
+                P2U4Health -= 1;
             }
         }
 
@@ -224,6 +261,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u2st.transform.position));
                 lRend.SetPosition(1, (p2u1tr.transform.position));
                 P1lines[1] = newLine;
+                P2U1Health -= 1;
 
             }
 
@@ -236,6 +274,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u2st.transform.position));
                 lRend.SetPosition(1, (p2u2tr.transform.position));
                 P1lines[1] = newLine;
+                P2U2Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 1 button 2")))
@@ -247,6 +286,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u2st.transform.position));
                 lRend.SetPosition(1, (p2u3tr.transform.position));
                 P1lines[1] = newLine;
+                P2U3Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 1 button 3")))
@@ -258,6 +298,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u2st.transform.position));
                 lRend.SetPosition(1, (p2u4tr.transform.position));
                 P1lines[1] = newLine;
+                P2U4Health -= 1;
             }
         }
 
@@ -272,6 +313,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u3st.transform.position));
                 lRend.SetPosition(1, (p2u1tr.transform.position));
                 P1lines[2] = newLine;
+                P2U1Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 1 button 1")))
@@ -283,6 +325,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u3st.transform.position));
                 lRend.SetPosition(1, (p2u2tr.transform.position));
                 P1lines[2] = newLine;
+                P2U2Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 1 button 2")))
@@ -294,6 +337,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u3st.transform.position));
                 lRend.SetPosition(1, (p2u3tr.transform.position));
                 P1lines[2] = newLine;
+                P2U3Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 1 button 3")))
@@ -305,6 +349,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p1u3st.transform.position));
                 lRend.SetPosition(1, (p2u4tr.transform.position));
                 P1lines[2] = newLine;
+                P2U4Health -= 1;
             }
         }
 
@@ -314,54 +359,62 @@ public class GameManager : MonoBehaviour
             {
                 turnFour = true;
 
-                GameObject newLine = Instantiate(p1LineMaker);
+                GameObject newLine = Instantiate(p1DblLineMaker);
                 LineRenderer lRend = newLine.GetComponent<LineRenderer>();
                 lRend.SetPosition(0, (p1u4st.transform.position));
-                lRend.SetPosition(1, (p2u1tr.transform.position));
+                lRend.SetPosition(1, (p1_4t1.transform.position));
+                lRend.SetPosition(2, (p1u1tr.transform.position));
                 P1lines[3] = newLine;
+                P1U1Health += 1;
             }
 
             else if ((Input.GetKeyDown("joystick 1 button 1")))
             {
                 turnFour = true;
 
-                GameObject newLine = Instantiate(p1LineMaker);
+                GameObject newLine = Instantiate(p1DblLineMaker);
                 LineRenderer lRend = newLine.GetComponent<LineRenderer>();
                 lRend.SetPosition(0, (p1u4st.transform.position));
-                lRend.SetPosition(1, (p2u2tr.transform.position));
+                lRend.SetPosition(1, (p1_4t2.transform.position));
+                lRend.SetPosition(2, (p1u2tr.transform.position));
                 P1lines[3] = newLine;
+                P1U2Health += 1;
             }
 
             else if ((Input.GetKeyDown("joystick 1 button 2")))
             {
                 turnFour = true;
 
-                GameObject newLine = Instantiate(p1LineMaker);
+                GameObject newLine = Instantiate(p1DblLineMaker);
                 LineRenderer lRend = newLine.GetComponent<LineRenderer>();
                 lRend.SetPosition(0, (p1u4st.transform.position));
-                lRend.SetPosition(1, (p2u3tr.transform.position));
+                lRend.SetPosition(1, (p1_4t3.transform.position));
+                lRend.SetPosition(2, (p1u3tr.transform.position));
                 P1lines[3] = newLine;
+                P1U3Health += 1;
             }
 
             else if ((Input.GetKeyDown("joystick 1 button 3")))
             {
                 turnFour = true;
 
-                GameObject newLine = Instantiate(p1LineMaker);
+                GameObject newLine = Instantiate(p1DblLineMaker);
                 LineRenderer lRend = newLine.GetComponent<LineRenderer>();
                 lRend.SetPosition(0, (p1u4st.transform.position));
-                lRend.SetPosition(1, (p2u4tr.transform.position));
+                lRend.SetPosition(1, (p1_4t4.transform.position));
+                lRend.SetPosition(2, (p1u4tr.transform.position));
                 P1lines[3] = newLine;
+                P1U4Health += 1;
             }
         }
 
-            if ((P1Turn == 5) && ((Input.GetKeyDown("joystick 1 button 1"))))
+            //if ((P1Turn == 5) && ((Input.GetKeyDown("joystick 1 button 1"))))
             {
-                turnReset = true;
-                foreach(GameObject Line in P1lines)
+                //turnReset = true;
+                //foreach(GameObject P1Line in P1lines)
                 {
-                   GameObject.Destroy(Line);
-                }
+                //GameObject.Destroy(P1Line);
+            }
 
             }
 
@@ -393,7 +446,7 @@ public class GameManager : MonoBehaviour
             {
                 P1UnitFour.SetActive(true);
                 P1Turn += 1;
-                turnFour = false; 
+                turnFour = false;
         }
 
             if (turnReset)
@@ -401,8 +454,6 @@ public class GameManager : MonoBehaviour
                 P1UnitOne.SetActive(false);
                 P1Turn = 1;
                 turnReset = false;
-
-
             }
 
         //Player Two
@@ -417,6 +468,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u1st.transform.position));
                 lRend.SetPosition(1, (p1u1tr.transform.position));
                 P2lines[0] = newLine;
+                P1U1Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 1")))
@@ -428,6 +480,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u1st.transform.position));
                 lRend.SetPosition(1, (p1u2tr.transform.position));
                 P2lines[0] = newLine;
+                P1U2Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 2")))
@@ -439,6 +492,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u1st.transform.position));
                 lRend.SetPosition(1, (p1u3tr.transform.position));
                 P2lines[0] = newLine;
+                P1U3Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 3")))
@@ -450,6 +504,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u1st.transform.position));
                 lRend.SetPosition(1, (p1u4tr.transform.position));
                 P2lines[0] = newLine;
+                P1U4Health -= 1;
             }
         }
 
@@ -465,6 +520,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u2st.transform.position));
                 lRend.SetPosition(1, (p1u1tr.transform.position));
                 P2lines[1] = newLine;
+                P1U1Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 1")))
@@ -476,6 +532,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u2st.transform.position));
                 lRend.SetPosition(1, (p1u2tr.transform.position));
                 P2lines[1] = newLine;
+                P1U2Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 2")))
@@ -487,6 +544,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u2st.transform.position));
                 lRend.SetPosition(1, (p1u3tr.transform.position));
                 P2lines[1] = newLine;
+                P1U3Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 3")))
@@ -498,6 +556,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u2st.transform.position));
                 lRend.SetPosition(1, (p1u4tr.transform.position));
                 P2lines[1] = newLine;
+                P1U4Health -= 1;
             }
         }
 
@@ -512,6 +571,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u3st.transform.position));
                 lRend.SetPosition(1, (p1u1tr.transform.position));
                 P2lines[2] = newLine;
+                P1U1Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 1")))
@@ -523,6 +583,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u3st.transform.position));
                 lRend.SetPosition(1, (p1u2tr.transform.position));
                 P2lines[2] = newLine;
+                P1U2Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 2")))
@@ -534,6 +595,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u3st.transform.position));
                 lRend.SetPosition(1, (p1u3tr.transform.position));
                 P2lines[2] = newLine;
+                P1U3Health -= 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 3")))
@@ -545,6 +607,7 @@ public class GameManager : MonoBehaviour
                 lRend.SetPosition(0, (p2u3st.transform.position));
                 lRend.SetPosition(1, (p1u4tr.transform.position));
                 P2lines[2] = newLine;
+                P1U4Health -= 1;
             }
         }
 
@@ -554,53 +617,61 @@ public class GameManager : MonoBehaviour
             {
                 P2turnFour = true;
 
-                GameObject newLine = Instantiate(p2LineMaker);
+                GameObject newLine = Instantiate(p2DblLineMaker);
                 LineRenderer lRend = newLine.GetComponent<LineRenderer>();
                 lRend.SetPosition(0, (p2u4st.transform.position));
-                lRend.SetPosition(1, (p1u1tr.transform.position));
+                lRend.SetPosition(1, (p2_4t1.transform.position));
+                lRend.SetPosition(2, (p2u1tr.transform.position));
                 P2lines[3] = newLine;
+                P2U1Health += 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 1")))
             {
                 P2turnFour = true;
 
-                GameObject newLine = Instantiate(p2LineMaker);
+                GameObject newLine = Instantiate(p2DblLineMaker);
                 LineRenderer lRend = newLine.GetComponent<LineRenderer>();
                 lRend.SetPosition(0, (p2u4st.transform.position));
-                lRend.SetPosition(1, (p1u2tr.transform.position));
+                lRend.SetPosition(1, (p2_4t2.transform.position));
+                lRend.SetPosition(2, (p2u1tr.transform.position));
                 P2lines[3] = newLine;
+                P2U2Health += 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 2")))
             {
                 P2turnFour = true;
 
-                GameObject newLine = Instantiate(p2LineMaker);
+                GameObject newLine = Instantiate(p2DblLineMaker);
                 LineRenderer lRend = newLine.GetComponent<LineRenderer>();
                 lRend.SetPosition(0, (p2u4st.transform.position));
-                lRend.SetPosition(1, (p1u3tr.transform.position));
+                lRend.SetPosition(1, (p2_4t3.transform.position));
+                lRend.SetPosition(2, (p2u3tr.transform.position));
                 P2lines[3] = newLine;
+                P2U3Health += 1;
             }
 
             else if ((Input.GetKeyDown("joystick 2 button 3")))
             {
                 P2turnFour = true;
 
-                GameObject newLine = Instantiate(p2LineMaker);
+                GameObject newLine = Instantiate(p2DblLineMaker);
                 LineRenderer lRend = newLine.GetComponent<LineRenderer>();
                 lRend.SetPosition(0, (p2u4st.transform.position));
-                lRend.SetPosition(1, (p1u4tr.transform.position));
+                lRend.SetPosition(1, (p2_4t4.transform.position));
+                lRend.SetPosition(2, (p2u4tr.transform.position));
                 P2lines[3] = newLine;
+                P2U4Health += 1;
             }
         }
 
-        if ((P2Turn == 5) && ((Input.GetKeyDown("joystick 2 button 1"))))
+        //if ((P2Turn == 5) && ((Input.GetKeyDown("joystick 2 button 1"))))
             {
-                P2turnReset = true;
-                foreach (GameObject Line in P2lines)
+                //P2turnReset = true;
+                //foreach (GameObject P2Line in P2lines)
                 {
-                    GameObject.Destroy(Line);
+                    //GameObject.Destroy(P2Line);
                 }
         }
 
@@ -633,7 +704,7 @@ public class GameManager : MonoBehaviour
                 P2UnitFour.SetActive(true);
                 P2Turn += 1;
                 P2turnFour = false;
-            }
+        }
 
         if (P2turnReset)
             {
@@ -642,7 +713,13 @@ public class GameManager : MonoBehaviour
                 P2turnReset = false;
             }
 
-        //Debug.Log(P1Turn + " - " + P2Turn);
+        if ((P1Turn == 5) && (P2Turn == 5))
+        {
+            block.SetActive(false);
+            healthManager.GetComponent<HealthManager>().HealthUpdate();
+        }
+
+        
 
     }
 }

@@ -10,12 +10,14 @@ public class CanvasManager : MonoBehaviour
     public StandaloneInputModule eventSystem;
     public GameObject menu;
     public GameObject game;
+    public GameObject block;
     public Button StartBtn;
 
     public void Start()
     {
         menu.SetActive(true);
         game.SetActive(false);
+        block.SetActive(false);
     }
 
     public void Update()
@@ -27,6 +29,7 @@ public class CanvasManager : MonoBehaviour
     {
         menu.SetActive(false);
         game.SetActive(true);
+        block.SetActive(true);
         
     }
 
