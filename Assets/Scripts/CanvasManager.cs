@@ -30,7 +30,6 @@ public class CanvasManager : MonoBehaviour
         menu.SetActive(false);
         game.SetActive(true);
         block.SetActive(true);
-        
     }
 
 

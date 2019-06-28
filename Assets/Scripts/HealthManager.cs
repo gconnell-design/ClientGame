@@ -33,7 +33,7 @@ public class HealthManager : MonoBehaviour {
     public int P2U4Health;
 
     // Use this for initialization
-    void Start () {
+    void Update () {
         P1U1Health = Game.GetComponent<GameManager>().P1U1Health;
         P1U2Health = Game.GetComponent<GameManager>().P1U2Health;
         P1U3Health = Game.GetComponent<GameManager>().P1U3Health;
@@ -103,11 +103,11 @@ public class HealthManager : MonoBehaviour {
             P1U3Health = 2;
             P1U3HDisplay.GetComponent<SpriteRenderer>().sprite = P1H_2;
         }
-        if (P1U3Health == 1)
+        else if (P1U3Health == 1)
         {
             P1U3HDisplay.GetComponent<SpriteRenderer>().sprite = P1H_1;
         }
-        if (P1U3Health <= 0)
+        else if (P1U3Health <= 0)
         {
             P1U3Health = 0;
             P1U3HDisplay.GetComponent<SpriteRenderer>().sprite = PH_0;
@@ -121,11 +121,11 @@ public class HealthManager : MonoBehaviour {
             P1U4Health = 2;
             P1U4HDisplay.GetComponent<SpriteRenderer>().sprite = P1H_2;
         }
-        if (P1U4Health == 1)
+        else if (P1U4Health == 1)
         {
             P1U4HDisplay.GetComponent<SpriteRenderer>().sprite = P1H_1;
         }
-        if (P1U4Health <= 0)
+        else if (P1U4Health <= 0)
         {
             P1U4Health = 0;
             P1U4HDisplay.GetComponent<SpriteRenderer>().sprite = PH_0;
@@ -139,11 +139,11 @@ public class HealthManager : MonoBehaviour {
             P2U1Health = 2;
             P2U1HDisplay.GetComponent<SpriteRenderer>().sprite = P2H_2;
         }
-        if (P2U1Health == 1)
+        else if (P2U1Health == 1)
         {
             P2U1HDisplay.GetComponent<SpriteRenderer>().sprite = P2H_1;
         }
-        if (P2U1Health <= 0)
+        else if (P2U1Health <= 0)
         {
             P2U1Health = 0;
             P2U1HDisplay.GetComponent<SpriteRenderer>().sprite = PH_0;
@@ -157,11 +157,11 @@ public class HealthManager : MonoBehaviour {
             P2U2Health = 2;
             P2U2HDisplay.GetComponent<SpriteRenderer>().sprite = P2H_2;
         }
-        if (P2U2Health == 1)
+        else if (P2U2Health == 1)
         {
             P2U2HDisplay.GetComponent<SpriteRenderer>().sprite = P2H_1;
         }
-        if (P2U2Health <= 0)
+        else if (P2U2Health <= 0)
         {
             P2U2Health = 0;
             P2U2HDisplay.GetComponent<SpriteRenderer>().sprite = PH_0;
@@ -175,11 +175,11 @@ public class HealthManager : MonoBehaviour {
             P2U3Health = 2;
             P2U3HDisplay.GetComponent<SpriteRenderer>().sprite = P2H_2;
         }
-        if (P2U3Health == 1)
+        else if (P2U3Health == 1)
         {
             P2U3HDisplay.GetComponent<SpriteRenderer>().sprite = P2H_1;
         }
-        if (P2U3Health <= 0)
+        else if (P2U3Health <= 0)
         {
             P2U3Health = 0;
             P2U3HDisplay.GetComponent<SpriteRenderer>().sprite = PH_0;
@@ -193,11 +193,11 @@ public class HealthManager : MonoBehaviour {
             P2U4Health = 2;
             P2U4HDisplay.GetComponent<SpriteRenderer>().sprite = P2H_2;
         }
-        if (P2U4Health == 1)
+        else if (P2U4Health == 1)
         {
             P2U4HDisplay.GetComponent<SpriteRenderer>().sprite = P2H_1;
         }
-        if (P2U4Health <= 0)
+        else if (P2U4Health <= 0)
         {
             P2U4Health = 0;
             P2U4HDisplay.GetComponent<SpriteRenderer>().sprite = PH_0;

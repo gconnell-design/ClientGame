@@ -116,8 +116,6 @@ public class GameManager : MonoBehaviour
         P2U3Health = 2;
         P2U4Health = 2;
 
-    block = canvas.GetComponent<CanvasManager>().block;
-
         P1Slot1 = new Unit();
         P1Slot1.Name = "Knight";
         P1Slot1.HP = 2;
@@ -189,7 +187,7 @@ public class GameManager : MonoBehaviour
         currentTime = Game.GetComponent<CountdownTimer>().currentTime;
         if (currentTime > 0f)
         {
-            PhaseTxt.text = "Action Phase";
+            PhaseTxt.text = "Turn ";
         }
 
         if (currentTime <= 0f)
@@ -713,11 +711,7 @@ public class GameManager : MonoBehaviour
                 P2turnReset = false;
             }
 
-        if ((P1Turn == 5) && (P2Turn == 5))
-        {
-            block.SetActive(false);
-            healthManager.GetComponent<HealthManager>().HealthUpdate();
-        }
+        
 
         
 
