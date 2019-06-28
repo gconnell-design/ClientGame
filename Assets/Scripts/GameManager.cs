@@ -183,18 +183,6 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-
-        currentTime = Game.GetComponent<CountdownTimer>().currentTime;
-        if (currentTime > 0f)
-        {
-            PhaseTxt.text = "Turn ";
-        }
-
-        if (currentTime <= 0f)
-        {
-            PhaseTxt.text = "Results";
-        }
-
         //Player One
         if (P1Turn == 1)
         {
@@ -406,16 +394,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-            //if ((P1Turn == 5) && ((Input.GetKeyDown("joystick 1 button 1"))))
-            {
-                //turnReset = true;
-                //foreach(GameObject P1Line in P1lines)
-                {
-                //GameObject.Destroy(P1Line);
-            }
-
-            }
-
             if (turnOne)
             {
                 P1UnitOne.SetActive(true);
@@ -446,13 +424,6 @@ public class GameManager : MonoBehaviour
                 P1Turn += 1;
                 turnFour = false;
         }
-
-            if (turnReset)
-            {
-                P1UnitOne.SetActive(false);
-                P1Turn = 1;
-                turnReset = false;
-            }
 
         //Player Two
         if (P2Turn == 1)
@@ -664,15 +635,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //if ((P2Turn == 5) && ((Input.GetKeyDown("joystick 2 button 1"))))
-            {
-                //P2turnReset = true;
-                //foreach (GameObject P2Line in P2lines)
-                {
-                    //GameObject.Destroy(P2Line);
-                }
-        }
-
         if (P2turnOne)
             {
                 P2UnitOne.SetActive(true);
@@ -703,18 +665,21 @@ public class GameManager : MonoBehaviour
                 P2Turn += 1;
                 P2turnFour = false;
         }
+    }
 
-        if (P2turnReset)
-            {
-                P2UnitOne.SetActive(false);
-                P2Turn = 1;
-                P2turnReset = false;
-            }
+    public void NewTurnReset()
+    {
+        P1UnitOne.SetActive(false);
+        P2UnitOne.SetActive(false);
+        foreach (GameObject P1Line in P1lines)
+        {
+            GameObject.Destroy(P1Line);
+        }
 
-        
-
-        
-
+        foreach (GameObject P2Line in P2lines)
+        {
+            GameObject.Destroy(P2Line);
+        }
     }
 }
 

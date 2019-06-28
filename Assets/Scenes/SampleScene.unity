@@ -400,7 +400,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1127,7 +1127,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 195775159}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2489,7 +2489,7 @@ Prefab:
     - target: {fileID: 224954715098058292, guid: 93faf7f0ed02a884ea2c2d3135d47faf,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4457785991622896, guid: 93faf7f0ed02a884ea2c2d3135d47faf, type: 2}
       propertyPath: m_RootOrder
@@ -2503,7 +2503,7 @@ Prefab:
     - target: {fileID: 224066821057621830, guid: 93faf7f0ed02a884ea2c2d3135d47faf,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114700457093723180, guid: 93faf7f0ed02a884ea2c2d3135d47faf,
         type: 2}
@@ -2734,6 +2734,21 @@ Prefab:
     - target: {fileID: 1545778041138826, guid: d7fd19d258aa5d049809a494c8a0fdc8, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807311151616962, guid: d7fd19d258aa5d049809a494c8a0fdc8,
+        type: 2}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807311151616962, guid: d7fd19d258aa5d049809a494c8a0fdc8,
+        type: 2}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807311151616962, guid: d7fd19d258aa5d049809a494c8a0fdc8,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7fd19d258aa5d049809a494c8a0fdc8, type: 2}

@@ -56,17 +56,20 @@ public class TurnManager : MonoBehaviour
     {
         block.SetActive(false);
         canInvoke = false;
+        healthManager.GetComponent<HealthManager>().HealthUpdate();
         Invoke("ResetPhase", 5);
     }
 
     void ResetPhase()
     {
-        P1Turn = 1;
-        P2Turn = 1;
+        Game.GetComponent<GameManager>().P1Turn = 1;
+        Game.GetComponent<GameManager>().P2Turn = 1;
         timerTxt.SetActive(true);
         timerTxt0.SetActive(false);
         turnNumber += 1;
+        canInvoke = true;
         Game.GetComponent<CountdownTimer>().currentTime = 30;
         block.SetActive(true);
+        Game.GetComponent<GameManager>().NewTurnReset();
     }
 }
