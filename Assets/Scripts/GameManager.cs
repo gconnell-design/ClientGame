@@ -82,6 +82,15 @@ public class GameManager : MonoBehaviour
     public bool P2turnFour;
     public bool P2turnReset;
 
+    public bool P1U1Dead;
+    public bool P1U2Dead;
+    public bool P1U3Dead;
+    public bool P1U4Dead;
+
+    public bool P2U1Dead;
+    public bool P2U2Dead;
+    public bool P2U3Dead;
+    public bool P2U4Dead;
 
     public Text PhaseTxt;
     public GameObject Game;
@@ -183,10 +192,25 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        P1U1Dead = healthManager.GetComponent<HealthManager>().P1U1Dead;
+        P1U2Dead = healthManager.GetComponent<HealthManager>().P1U2Dead;
+        P1U3Dead = healthManager.GetComponent<HealthManager>().P1U3Dead;
+        P1U4Dead = healthManager.GetComponent<HealthManager>().P1U4Dead;
+
+        P2U1Dead = healthManager.GetComponent<HealthManager>().P2U1Dead;
+        P2U2Dead = healthManager.GetComponent<HealthManager>().P2U2Dead;
+        P2U3Dead = healthManager.GetComponent<HealthManager>().P2U3Dead;
+        P2U4Dead = healthManager.GetComponent<HealthManager>().P2U4Dead;
+
         //Player One
         if (P1Turn == 1)
         {
-            if ((Input.GetKeyDown("joystick 1 button 0")))
+            if (P1U1Dead == true)
+            {
+                turnOne = true;
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 0")) && P2U1Dead == false)
             {
                 turnOne = true;
 
@@ -198,7 +222,7 @@ public class GameManager : MonoBehaviour
                 P2U1Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 1")))
+            else if ((Input.GetKeyDown("joystick 1 button 1")) && P2U2Dead == false)
             {
                 turnOne = true;
 
@@ -210,7 +234,7 @@ public class GameManager : MonoBehaviour
                 P2U2Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 2")))
+            else if ((Input.GetKeyDown("joystick 1 button 2")) && P2U3Dead == false)
             {
                 turnOne = true;
 
@@ -222,7 +246,7 @@ public class GameManager : MonoBehaviour
                 P2U3Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 3")))
+            else if ((Input.GetKeyDown("joystick 1 button 3")) && P2U4Dead == false)
             {
                 turnOne = true;
 
@@ -238,7 +262,12 @@ public class GameManager : MonoBehaviour
 
         if (P1Turn == 2)
         {
-            if ((Input.GetKeyDown("joystick 1 button 0")))
+            if (P1U2Dead == true)
+            {
+                turnTwo = true;
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 0")) && P2U1Dead == false)
             {
                 turnTwo = true;
 
@@ -251,7 +280,7 @@ public class GameManager : MonoBehaviour
 
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 1")))
+            else if ((Input.GetKeyDown("joystick 1 button 1")) && P2U2Dead == false)
             {
                 turnTwo = true;
 
@@ -263,7 +292,7 @@ public class GameManager : MonoBehaviour
                 P2U2Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 2")))
+            else if ((Input.GetKeyDown("joystick 1 button 2")) && P2U3Dead == false)
             {
                 turnTwo = true;
 
@@ -275,7 +304,7 @@ public class GameManager : MonoBehaviour
                 P2U3Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 3")))
+            else if ((Input.GetKeyDown("joystick 1 button 3")) && P2U4Dead == false)
             {
                 turnTwo = true;
 
@@ -290,7 +319,12 @@ public class GameManager : MonoBehaviour
 
         if (P1Turn == 3)
         {
-            if ((Input.GetKeyDown("joystick 1 button 0")))
+            if (P1U3Dead == true)
+            {
+                turnThree = true;
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 0")) && P2U1Dead == false)
             {
                 turnThree = true;
 
@@ -302,7 +336,7 @@ public class GameManager : MonoBehaviour
                 P2U1Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 1")))
+            else if ((Input.GetKeyDown("joystick 1 button 1")) && P2U2Dead == false)
             {
                 turnThree = true;
 
@@ -314,7 +348,7 @@ public class GameManager : MonoBehaviour
                 P2U2Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 2")))
+            else if ((Input.GetKeyDown("joystick 1 button 2")) && P2U3Dead == false)
             {
                 turnThree = true;
 
@@ -326,7 +360,7 @@ public class GameManager : MonoBehaviour
                 P2U3Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 3")))
+            else if ((Input.GetKeyDown("joystick 1 button 3")) && P2U4Dead == false)
             {
                 turnThree = true;
 
@@ -341,7 +375,12 @@ public class GameManager : MonoBehaviour
 
         if (P1Turn == 4)
         {
-            if ((Input.GetKeyDown("joystick 1 button 0")))
+            if (P1U4Dead == true)
+            {
+                turnFour = true;
+            }
+
+            else if ((Input.GetKeyDown("joystick 1 button 0")) && P1U1Dead == false)
             {
                 turnFour = true;
 
@@ -354,7 +393,7 @@ public class GameManager : MonoBehaviour
                 P1U1Health += 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 1")))
+            else if ((Input.GetKeyDown("joystick 1 button 1")) && P1U2Dead == false)
             {
                 turnFour = true;
 
@@ -367,7 +406,7 @@ public class GameManager : MonoBehaviour
                 P1U2Health += 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 2")))
+            else if ((Input.GetKeyDown("joystick 1 button 2")) && P1U3Dead == false)
             {
                 turnFour = true;
 
@@ -380,7 +419,7 @@ public class GameManager : MonoBehaviour
                 P1U3Health += 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 1 button 3")))
+            else if ((Input.GetKeyDown("joystick 1 button 3")) && P1U4Dead == false)
             {
                 turnFour = true;
 
@@ -428,7 +467,12 @@ public class GameManager : MonoBehaviour
         //Player Two
         if (P2Turn == 1)
         {
-            if ((Input.GetKeyDown("joystick 2 button 0")))
+            if (P2U1Dead == true)
+            {
+                P2turnOne = true;
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 0")) && P1U1Dead == false)
             {
                 P2turnOne = true;
 
@@ -440,7 +484,7 @@ public class GameManager : MonoBehaviour
                 P1U1Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 1")))
+            else if ((Input.GetKeyDown("joystick 2 button 1")) && P1U2Dead == false)
             {
                 P2turnOne = true;
 
@@ -452,7 +496,7 @@ public class GameManager : MonoBehaviour
                 P1U2Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 2")))
+            else if ((Input.GetKeyDown("joystick 2 button 2")) && P1U3Dead == false)
             {
                 P2turnOne = true;
 
@@ -464,7 +508,7 @@ public class GameManager : MonoBehaviour
                 P1U3Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 3")))
+            else if ((Input.GetKeyDown("joystick 2 button 3")) && P1U4Dead == false)
             {
                 P2turnOne = true;
 
@@ -480,7 +524,12 @@ public class GameManager : MonoBehaviour
 
         if (P2Turn == 2)
         {
-            if ((Input.GetKeyDown("joystick 2 button 0")))
+            if (P2U2Dead == true)
+            {
+                P2turnTwo = true;
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 0")) && P1U1Dead == false)
             {
                 P2turnTwo = true;
 
@@ -492,7 +541,7 @@ public class GameManager : MonoBehaviour
                 P1U1Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 1")))
+            else if ((Input.GetKeyDown("joystick 2 button 1")) && P1U2Dead == false)
             {
                 P2turnTwo = true;
 
@@ -504,7 +553,7 @@ public class GameManager : MonoBehaviour
                 P1U2Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 2")))
+            else if ((Input.GetKeyDown("joystick 2 button 2")) && P1U3Dead == false)
             {
                 P2turnTwo = true;
 
@@ -516,7 +565,7 @@ public class GameManager : MonoBehaviour
                 P1U3Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 3")))
+            else if ((Input.GetKeyDown("joystick 2 button 3")) && P1U4Dead == false)
             {
                 P2turnTwo = true;
 
@@ -531,7 +580,12 @@ public class GameManager : MonoBehaviour
 
         if (P2Turn == 3)
         {
-            if ((Input.GetKeyDown("joystick 2 button 0")))
+            if (P2U3Dead == true)
+            {
+                P2turnThree = true;
+            }
+
+            else if ((Input.GetKeyDown("joystick 2 button 0")) && P1U1Dead == false)
             {
                 P2turnThree = true;
 
@@ -543,7 +597,7 @@ public class GameManager : MonoBehaviour
                 P1U1Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 1")))
+            else if ((Input.GetKeyDown("joystick 2 button 1")) && P1U2Dead == false)
             {
                 P2turnThree = true;
 
@@ -555,7 +609,7 @@ public class GameManager : MonoBehaviour
                 P1U2Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 2")))
+            else if ((Input.GetKeyDown("joystick 2 button 2")) && P1U3Dead == false)
             {
                 P2turnThree = true;
 
@@ -567,7 +621,7 @@ public class GameManager : MonoBehaviour
                 P1U3Health -= 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 3")))
+            else if ((Input.GetKeyDown("joystick 2 button 3")) && P1U4Dead == false)
             {
                 P2turnThree = true;
 
@@ -582,7 +636,12 @@ public class GameManager : MonoBehaviour
 
         if (P2Turn == 4)
         {
-            if ((Input.GetKeyDown("joystick 2 button 0")))
+            if (P2U4Dead == true)
+            {
+                P2turnFour = true;
+            }
+
+            if ((Input.GetKeyDown("joystick 2 button 0")) && P2U1Dead == false)
             {
                 P2turnFour = true;
 
@@ -595,7 +654,7 @@ public class GameManager : MonoBehaviour
                 P2U1Health += 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 1")))
+            else if ((Input.GetKeyDown("joystick 2 button 1")) && P2U2Dead == false)
             {
                 P2turnFour = true;
 
@@ -603,12 +662,12 @@ public class GameManager : MonoBehaviour
                 LineRenderer lRend = newLine.GetComponent<LineRenderer>();
                 lRend.SetPosition(0, (p2u4st.transform.position));
                 lRend.SetPosition(1, (p2_4t2.transform.position));
-                lRend.SetPosition(2, (p2u1tr.transform.position));
+                lRend.SetPosition(2, (p2u2tr.transform.position));
                 P2lines[3] = newLine;
                 P2U2Health += 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 2")))
+            else if ((Input.GetKeyDown("joystick 2 button 2")) && P2U3Dead == false)
             {
                 P2turnFour = true;
 
@@ -621,7 +680,7 @@ public class GameManager : MonoBehaviour
                 P2U3Health += 1;
             }
 
-            else if ((Input.GetKeyDown("joystick 2 button 3")))
+            else if ((Input.GetKeyDown("joystick 2 button 3")) && P2U4Dead == false)
             {
                 P2turnFour = true;
 

@@ -13,6 +13,7 @@ public class TurnManager : MonoBehaviour
     public int P2Turn;
 
     public bool canInvoke;
+    public bool gameOver;
 
     public Text PhaseTxt;
 
@@ -43,12 +44,19 @@ public class TurnManager : MonoBehaviour
             PhaseTxt.text = "Turn " + turnNumber;
         }
 
-        if ((((P1Turn == 5) && (P2Turn == 5)) || (currentTime <= 0)) && (canInvoke))
+        if (((((P1Turn == 5) && (P2Turn == 5)) || (currentTime <= 0)) && (canInvoke)) && (healthManager.GetComponent<HealthManager>().GameDrawn == false)
+            && (healthManager.GetComponent<HealthManager>().GreenWon == false) && (healthManager.GetComponent<HealthManager>().PurpleWon == false))
         {
             ResultPhase();
             timerTxt.SetActive(false);
             timerTxt0.SetActive(true);
             PhaseTxt.text = "Turn " + turnNumber + " Results";
+        }
+
+        else if (((((P1Turn == 5) && (P2Turn == 5)) || (currentTime <= 0)) && ((healthManager.GetComponent<HealthManager>().GameDrawn == true)
+            || (healthManager.GetComponent<HealthManager>().GreenWon == true) || (healthManager.GetComponent<HealthManager>().PurpleWon == true))))
+        {
+            GameOver();
         }
     }
 
@@ -62,14 +70,29 @@ public class TurnManager : MonoBehaviour
 
     void ResetPhase()
     {
-        Game.GetComponent<GameManager>().P1Turn = 1;
-        Game.GetComponent<GameManager>().P2Turn = 1;
-        timerTxt.SetActive(true);
-        timerTxt0.SetActive(false);
-        turnNumber += 1;
-        canInvoke = true;
-        Game.GetComponent<CountdownTimer>().currentTime = 30;
-        block.SetActive(true);
-        Game.GetComponent<GameManager>().NewTurnReset();
+        if (gameOver == false)
+        {
+            Game.GetComponent<GameManager>().P1Turn = 1;
+            Game.GetComponent<GameManager>().P2Turn = 1;
+            timerTxt.SetActive(true);
+            timerTxt0.SetActive(false);
+            turnNumber += 1;
+            canInvoke = true;
+            Game.GetComponent<CountdownTimer>().currentTime = 30;
+            block.SetActive(true);
+            Game.GetComponent<GameManager>().NewTurnReset();
+        } 
     }
+
+    void GameOver()
+    {
+        healthManager.GetComponent<HealthManager>().HealthUpdate();
+        block.SetActive(false);
+        timerTxt.SetActive(false);
+        timerTxt0.SetActive(true);
+        gameOver = true;
+        PhaseTxt.text = "Game Over";
+    }
+
+    
 }
