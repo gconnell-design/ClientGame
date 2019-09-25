@@ -6,6 +6,7 @@ public class HealthManager : MonoBehaviour {
 
     public GameObject Game;
     public GameObject Canvas;
+    public GameObject Turn;
 
     public GameObject P1U1HDisplay;
     public GameObject P1U2HDisplay;
@@ -47,6 +48,8 @@ public class HealthManager : MonoBehaviour {
     public int P2U3Health;
     public int P2U4Health;
 
+    public int turnNumber;
+
     public void Start()
     {
         P1U1Dead = false;
@@ -76,7 +79,9 @@ public class HealthManager : MonoBehaviour {
         P2U3Health = Game.GetComponent<GameManager>().P2U3Health;
         P2U4Health = Game.GetComponent<GameManager>().P2U4Health;
 
-        if ((P1U1Dead) && (P1U2Dead) && (P1U3Dead) && (P1U4Dead) && (P2U1Dead) && (P2U2Dead) && (P2U3Dead) && (P2U4Dead))
+        turnNumber = Turn.GetComponent<TurnManager>().turnNumber;
+
+        if ((P1U1Dead) && (P1U2Dead) && (P1U3Dead) && (P1U4Dead) && (P2U1Dead) && (P2U2Dead) && (P2U3Dead) && (P2U4Dead) || (turnNumber == 11))
         {
             GameDrawn = true;
             Canvas.GetComponent<CanvasManager>().Draw();
@@ -112,7 +117,6 @@ public class HealthManager : MonoBehaviour {
     {
         if (P1U1Health >= 2)
         {
-            Debug.Log("hi");
             Game.GetComponent<GameManager>().P1U1Health = 2;
             P1U1HDisplay.GetComponent<SpriteRenderer>().sprite = P1H_2;
         }

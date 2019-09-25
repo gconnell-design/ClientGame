@@ -32,7 +32,7 @@ public class TurnManager : MonoBehaviour
         timerTxt.SetActive(true);
     }
 
-    // Update is called once per frame
+    // Update is called once per framer
     void Update()
     {
         currentTime = Game.GetComponent<CountdownTimer>().currentTime;
