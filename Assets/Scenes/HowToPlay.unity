@@ -393,7 +393,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: '- Select buttons for each unit on whom to target. The highlighted unit
-    on your side is who your currently deciding for.
+    on your side is who you''re currently deciding for.
 
 
     - Knights will target the opposing sides units and deal 1 damage to their HP.
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 1622371623}
   - component: {fileID: 1622371622}
   - component: {fileID: 1622371621}
-  - component: {fileID: 1622371620}
+  - component: {fileID: 1622371625}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -678,28 +678,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1622371620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1622371619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a44bbcac54c9da4eb24c044cc0821e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventSystem: {fileID: 153390001}
-  menu: {fileID: 0}
-  game: {fileID: 0}
-  howto: {fileID: 1586950738}
-  block: {fileID: 0}
-  StartBtn: {fileID: 0}
-  HowToBtn: {fileID: 0}
-  HowTo: 0
-  DrawTxt: {fileID: 0}
-  GreenTxt: {fileID: 0}
-  PurpleTxt: {fileID: 0}
 --- !u!114 &1622371621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,6 +754,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1622371625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1622371619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39776149a763dd1469d884626b0fc3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1804647726
 GameObject:
   m_ObjectHideFlags: 0

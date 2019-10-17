@@ -14,4 +14,12 @@ public class LoadManager: MonoBehaviour {
     {
         SceneManager.LoadScene(2);
     }
+
+    public void Update()
+    {
+        if ((SceneManager.GetActiveScene().buildIndex == 2) && (Input.GetKeyDown("joystick 1 button 1")))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
 }

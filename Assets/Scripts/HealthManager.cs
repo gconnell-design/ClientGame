@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour {
 
@@ -97,6 +98,11 @@ public class HealthManager : MonoBehaviour {
         {
             GreenWon = true;
             Canvas.GetComponent<CanvasManager>().GreenWin();
+        }
+
+        if ((GreenWon) || (PurpleWon) || (GameDrawn) && (Input.GetKeyDown("joystick 1 button 7")))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 

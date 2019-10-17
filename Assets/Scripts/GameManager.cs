@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
     public Unit P2Slot3;
     public Unit P2Slot4;
 
+    public GameObject GreenOppo;
+    public GameObject GreenAlly;
+    public GameObject PurpleOppo;
+    public GameObject PurpleAlly;
+
     public GameObject healthManager;
     public GameObject block;
     public Canvas canvas;
@@ -205,6 +210,8 @@ public class GameManager : MonoBehaviour
         //Player One
         if (P1Turn == 1)
         {
+            GreenOppo.SetActive(true);
+
             if (P1U1Dead == true)
             {
                 turnOne = true;
@@ -262,6 +269,8 @@ public class GameManager : MonoBehaviour
 
         if (P1Turn == 2)
         {
+            GreenOppo.SetActive(true);
+
             if (P1U2Dead == true)
             {
                 turnTwo = true;
@@ -319,6 +328,8 @@ public class GameManager : MonoBehaviour
 
         if (P1Turn == 3)
         {
+            GreenOppo.SetActive(true);
+
             if (P1U3Dead == true)
             {
                 turnThree = true;
@@ -375,6 +386,7 @@ public class GameManager : MonoBehaviour
 
         if (P1Turn == 4)
         {
+            GreenAlly.SetActive(true);
             if (P1U4Dead == true)
             {
                 turnFour = true;
@@ -439,6 +451,7 @@ public class GameManager : MonoBehaviour
                 P1UnitTwo.SetActive(false);
                 P1Turn += 1;
                 turnOne = false;
+                GreenOppo.SetActive(false);
             }
 
             if (turnTwo)
@@ -447,6 +460,7 @@ public class GameManager : MonoBehaviour
                 P1UnitThree.SetActive(false);
                 P1Turn += 1;
                 turnTwo = false;
+                GreenOppo.SetActive(false);
             }
 
             if (turnThree)
@@ -455,6 +469,7 @@ public class GameManager : MonoBehaviour
                 P1UnitFour.SetActive(false);
                 P1Turn += 1;
                 turnThree = false;
+                GreenOppo.SetActive(false);
             }
 
             if (turnFour)
@@ -462,11 +477,14 @@ public class GameManager : MonoBehaviour
                 P1UnitFour.SetActive(true);
                 P1Turn += 1;
                 turnFour = false;
-        }
+                GreenAlly.SetActive(false);
+            }
 
         //Player Two
         if (P2Turn == 1)
         {
+            PurpleOppo.SetActive(true);
+
             if (P2U1Dead == true)
             {
                 P2turnOne = true;
@@ -524,6 +542,8 @@ public class GameManager : MonoBehaviour
 
         if (P2Turn == 2)
         {
+            PurpleOppo.SetActive(true);
+
             if (P2U2Dead == true)
             {
                 P2turnTwo = true;
@@ -580,6 +600,8 @@ public class GameManager : MonoBehaviour
 
         if (P2Turn == 3)
         {
+            PurpleOppo.SetActive(true);
+
             if (P2U3Dead == true)
             {
                 P2turnThree = true;
@@ -636,6 +658,8 @@ public class GameManager : MonoBehaviour
 
         if (P2Turn == 4)
         {
+            PurpleAlly.SetActive(true);
+
             if (P2U4Dead == true)
             {
                 P2turnFour = true;
@@ -700,6 +724,7 @@ public class GameManager : MonoBehaviour
                 P2UnitTwo.SetActive(false);
                 P2Turn += 1;
                 P2turnOne = false;
+                PurpleOppo.SetActive(false);
             }
 
         if (P2turnTwo)
@@ -708,6 +733,7 @@ public class GameManager : MonoBehaviour
                 P2UnitThree.SetActive(false);
                 P2Turn += 1;
                 P2turnTwo = false;
+                PurpleOppo.SetActive(false);
             }
 
         if (P2turnThree)
@@ -716,6 +742,7 @@ public class GameManager : MonoBehaviour
                 P2UnitFour.SetActive(false);
                 P2Turn += 1;
                 P2turnThree = false;
+                PurpleOppo.SetActive(false);
             }
 
         if (P2turnFour)
@@ -723,7 +750,8 @@ public class GameManager : MonoBehaviour
                 P2UnitFour.SetActive(true);
                 P2Turn += 1;
                 P2turnFour = false;
-        }
+                PurpleAlly.SetActive(false);
+            }
     }
 
     public void NewTurnReset()
