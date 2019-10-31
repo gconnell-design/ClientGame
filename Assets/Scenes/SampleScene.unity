@@ -479,7 +479,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -1529,15 +1529,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4025315930999726, guid: 5ada0e63396c44a4f871a0cf652793a0, type: 2}
       propertyPath: m_LocalScale.x
-      value: 69
+      value: 84.5457
       objectReference: {fileID: 0}
     - target: {fileID: 4025315930999726, guid: 5ada0e63396c44a4f871a0cf652793a0, type: 2}
       propertyPath: m_LocalScale.y
-      value: 65.99114
+      value: 80.85894
       objectReference: {fileID: 0}
     - target: {fileID: 4025315930999726, guid: 5ada0e63396c44a4f871a0cf652793a0, type: 2}
       propertyPath: m_LocalScale.z
-      value: 65.99114
+      value: 80.85894
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ada0e63396c44a4f871a0cf652793a0, type: 2}
@@ -1763,7 +1763,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -2617,7 +2617,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -2883,7 +2883,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
